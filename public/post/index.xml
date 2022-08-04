@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Projets plus ou moins stupides</title>
+    <link>https://luclu7.fr/blog/post/</link>
+    <description>Recent content in Posts on Projets plus ou moins stupides</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-fr</language>
+    <lastBuildDate>Thu, 04 Aug 2022 14:06:07 +0200</lastBuildDate><atom:link href="https://luclu7.fr/blog/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Confinement, Train Simulator et STM32: partie 1, la VA</title>
+      <link>https://luclu7.fr/blog/post/ts-part1/</link>
+      <pubDate>Thu, 04 Aug 2022 14:06:07 +0200</pubDate>
+      
+      <guid>https://luclu7.fr/blog/post/ts-part1/</guid>
+      <description>Le contexte C&amp;rsquo;était le confinement, vers mi-2020. À l&amp;rsquo;époque où tout sur AliExpress ne coûtait pas encore un prix ridicule, à l&amp;rsquo;époque où on pouvait acheter un module STM32F103(C8T6) avec USB type C pour&amp;hellip; 1€60 ! Je suis fan de trains (et donc de Train simulator) et j&amp;rsquo;avais beaucoup de temps libre, école à distance/hybride oblige. Comme beaucoup de passioné·e·s, je rêve d&amp;rsquo;avoir, un jour, un vrai pupitre (de commande) chez moi, et de pouvoir le connecter à un simulateur ferroviaire (TS, ou surtout OpenRails, comme souvent).</description>
+    </item>
+    
+  </channel>
+</rss>

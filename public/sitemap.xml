@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://luclu7.fr/blog/post/ts-part1/</loc>
+    <lastmod>2022-08-04T14:06:07+02:00</lastmod>
+  </url><url>
+    <loc>https://luclu7.fr/blog/post/</loc>
+    <lastmod>2022-08-04T14:06:07+02:00</lastmod>
+  </url><url>
+    <loc>https://luclu7.fr/blog/</loc>
+    <lastmod>2022-08-04T14:06:07+02:00</lastmod>
+  </url><url>
+    <loc>https://luclu7.fr/blog/categories/</loc>
+  </url><url>
+    <loc>https://luclu7.fr/blog/tags/</loc>
+  </url>
+</urlset>

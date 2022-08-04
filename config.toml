@@ -1,0 +1,35 @@
+baseURL = 'https://luclu7.fr/blog'
+languageCode = 'fr-fr'
+title = 'Projets plus ou moins stupides'
+theme = "solar"
+pygmentsStyle = "solarized-dark"
+
+[params]
+  scheme = "gray" # light, dark, gray or preference
+  description = "Parfois je fais des trucs intéressants"
+
+  [[menu.main]]
+    name = "Flux RSS"
+    url = "/index.xml"
+  [[menu.main]]
+    name = "Github"
+    url = "https://github.com/luclu7"
+  [[menu.other]]
+    name = "Twitter"
+    url = "https://twitter.com/luclu7__"
+
+[markup]
+  [markup.highlight]
+    anchorLineNos = false
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ''
+    hl_inline = false
+    lineAnchors = ''
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true
+    noHl = false
+    style = 'monokai'
+    tabWidth = 4
