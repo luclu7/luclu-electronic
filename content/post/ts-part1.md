@@ -9,13 +9,13 @@ C'était le confinement, vers mi-2020. À l'époque où tout sur AliExpress ne c
 ![Capture d'écran d'Aliexpress montrant la commande d'un STM32 pour 1€60](/blog/img/kvb/aliexpress-1.png)
 Je suis fan de trains (et donc de [Train simulator](https://store.steampowered.com/app/24010/Train_Simulator_Classic/?l=french)) et j'avais beaucoup de temps libre, école à distance/hybride oblige. Comme beaucoup de passioné·e·s, je rêve d'avoir, un jour, un vrai pupitre (de commande) chez moi, et de pouvoir le connecter à un simulateur ferroviaire (TS, ou surtout OpenRails, comme souvent).
 Par exemple:
-[![Pupitre ce CC 72000, converti par Ferrovisim](/blog/img/kvb/pupitre-72000-ferrovisim.jpg "Pupitre de CC 72000")](https://www.youtube.com/watch?v=fl0SIUiUrc0)
+[![Pupitre ce CC 72000, converti par Ferrovisim](/blog/img/kvb/pupitre-72000-ferrovisim.jpg "Pupitre de CC 72000 converti sous OpenRails")](https://www.youtube.com/watch?v=fl0SIUiUrc0)
 
 N'ayant pas de pupitre (ça se trouve pas sur leboncoin (quoi que...)), il existe une autre option: le RailDriver.
 ![Contrôleur RailDriver pour TrainSimulator](/blog/img/kvb/raildriver.png)
 Le seul problème, c'est que ça coûte cher, et je ne croule pas sous l'argent. Doooonc, la bricole à la rescousse (et puis c'est plus intéressant !)
 # En pratique?
-Donc pour commencer, j'ai voulu tenter par un élément simple: la pédale de VA (veille automatique).
+Donc pour commencer, j'ai voulu tenter par un élément simple: la pédale de VA ([Veille Automatique](https://fr.wikipedia.org/wiki/Veille_automatique)).
 Explication rapide: la VA (complet: VACMA, veille automatique à contrôle du maintien d'appui) sert à éviter qu'en cas de (notamment) malaise conducteur, le train s'arrête automatique.
 
 La VA est présente sous différentes formes: une pédale à maintenir appuyée, mais pas plus de 55 secondes. Il faut en effet la relâcher et rappuyer pour prouver qu'on est bien conscient. Si le conducteur garde sa pédale enfoncée 55s, une sonnerie se met à sonner. Si au bout de 2.5s il n'a pas relâché l'appui, le freinage d'urgence s'engage.
@@ -80,11 +80,48 @@ Si on ne peut pas avancer, on ne peut pas faire grand chose !
 
 ![Potentiomètre de côté](/blog/img/kvb/slide_pot.png)
 
-Côté Arduino, je vous laisse regarder sur Internet comment brancher un potentiomètre et lire une valeur analogique, puis la mapper sur 100.
-Ensuite, côté PC, c'est strictement pareil (j'envoie une virgule entre chaque valeur, *CSV-style*, et après je découpe côté PC).
-{{< highlight python >}}
-    rd.set_controller_value(keys["Regulator"], float(args[0]))
+Côté Arduino:
+J'envoie une virgule entre chaque valeur, *CSV-style*, et après je découpe côté PC.
+{{< highlight C >}}
+#include <Arduino.h>
+
+void setup()
+{
+  pinMode(VA, INPUT_PULLUP); // remplacez VA par votre pin
+
+  Serial.begin(115200); // on initialise la connexion série
+
+  while (Serial.available())
+  {
+    Serial.println("Arduino démarré");
+  }
+}
+
+
+void separate()
+{
+  Serial.print(",");
+}
+
+void loop()
+{
+    Serial.print(readButton(PB14)); separate();
+    Serial.println(float(analogRead(PA7)) / 1023);
+
+    delay(300); // temporaire, pas très propre, mais bon
+}
 {{< / highlight >}}
+Ensuite, côté PC, c'est pareil:
+{{< highlight python >}}
+if port_serie.isOpen():
+    while True:
+        ligne = port_serie.readline().rstrip()
+        args = ligne.split(",")
+        rd.set_controller_value(keys["VACMA"], float(args[0].decode("utf-8")))
+        rd.set_controller_value(keys["Regulator"], float(args[1]))
+{{< / highlight >}}
+
+Et normalement, ça devrait marcher. Cependant, j'écris ce code presque deux ans après l'avoir réellement expérimenté donc ça peut ne pas être parfait.
 
 # Final
 ![Plaque de test "terminée"](/blog/img/kvb/plaque.jpg)
@@ -94,3 +131,7 @@ Après m'être ratée à gauche sur la découpe, j'ai rentré, plus proprement �
 - Bouton rouge réarmable - Arrêt d'urgence
 - Interrupteur avec protection rouge - Aucun usage, juste pour tester
 - Potentiomètre vertical qui sert pour le manipulateur de traction
+
+C'était sympa, mais niveau immersion, on a vu mieux. Notamment car, dans la liste des éléments vraiment obligatoires, il manque... de quoi freiner !
+
+Donc j'ai décidé de m'attaquer à un composant de tous les pupitres modernes: le [KVB](https://fr.wikipedia.org/wiki/Contr%C3%B4le_de_vitesse_par_balises "Contrôle de Vitesse par Balises"). Mais ça, c'est pour le prochain article.
