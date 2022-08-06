@@ -1,0 +1,7 @@
+        <meta property="og:title" content="{{ .Title }}">
+        <meta property="og:description" content="{{ .Summary | safeHTML }}">
+        <meta property="twitter:creator" content="@luclu7_">
+        <meta property="twitter:title" content="{{ .Title }}">
+        <meta property="twitter:description" content="{{ .Summary | safeHTML }}">
+
+        {{ partial "twitter-card" . }}

@@ -4,7 +4,7 @@ date: 2022-08-04T14:06:07+02:00
 draft: false
 ---
 
-# Le contexte
+## Le contexte
 C'était le confinement, vers mi-2020. À l'époque où tout sur AliExpress ne coûtait pas encore un prix ridicule, à l'époque où on pouvait acheter un module STM32F103(C8T6) avec USB type C pour... 1€60 !
 ![Capture d'écran d'Aliexpress montrant la commande d'un STM32 pour 1€60](/blog/img/kvb/aliexpress-1.png)
 Je suis fan de trains (et donc de [Train simulator](https://store.steampowered.com/app/24010/Train_Simulator_Classic/?l=french)) et j'avais beaucoup de temps libre, école à distance/hybride oblige. Comme beaucoup de passioné·e·s, je rêve d'avoir, un jour, un vrai pupitre (de commande) chez moi, et de pouvoir le connecter à un simulateur ferroviaire (TS, ou surtout OpenRails, comme souvent).
@@ -14,7 +14,7 @@ Par exemple:
 N'ayant pas de pupitre (ça se trouve pas sur leboncoin (quoi que...)), il existe une autre option: le RailDriver.
 ![Contrôleur RailDriver pour TrainSimulator](/blog/img/kvb/raildriver.png)
 Le seul problème, c'est que ça coûte cher, et je ne croule pas sous l'argent. Doooonc, la bricole à la rescousse (et puis c'est plus intéressant !)
-# En pratique?
+## En pratique?
 Donc pour commencer, j'ai voulu tenter par un élément simple: la pédale de VA ([Veille Automatique](https://fr.wikipedia.org/wiki/Veille_automatique)).
 Explication rapide: la VA (complet: VACMA, veille automatique à contrôle du maintien d'appui) sert à éviter qu'en cas de (notamment) malaise conducteur, le train s'arrête automatique.
 
@@ -28,7 +28,7 @@ J'avais acheté par curiosité une pédale à connecter avant: parfait !
 
 Donc côté matériel, c'est presque fini. Plus que la connexion avec le logiciel.
 
-# La communication et l'intégration
+## La communication et l'intégration
 Et c'est là qu'on a de la chance: grâce au RailDriver précédemment évoqué, il existe une DLL pour s'interface "facilement" avec TS: "RailDriver.dll" et "RailDriver64.dll".
 
 Je saute toute la partie "bricoler avec un outils en Java" ([cet outil](https://github.com/reallyinsane/trainsimulator-controller)), j'ai pas réussi à en faire grand chose.
@@ -73,7 +73,7 @@ Le nom des contrôles dépend du matériel utilisé. J'utilise donc un fichier .
 
 Et avec un peu de chance ça marche. Bon, il faut parfois relancer quelques fois le jeu ou le script, mais à part ça, ça marche !
 
-# La suite
+## La suite
 Le plus évident pour contrôler un train est le, en language SNCF, ✨ MPT ✨: le ManiPulateur de Traction (en terme TS, *Regulator*).
 
 Si on ne peut pas avancer, on ne peut pas faire grand chose !
@@ -123,7 +123,7 @@ if port_serie.isOpen():
 
 Et normalement, ça devrait marcher. Cependant, j'écris ce code presque deux ans après l'avoir réellement expérimenté donc ça peut ne pas être parfait.
 
-# Final
+## Final
 ![Plaque de test "terminée"](/blog/img/kvb/plaque.jpg)
 Après m'être ratée à gauche sur la découpe, j'ai rentré, plus proprement à droite. De gauche à droite:
 - Interrupteur 3 position - inverseur: avancer, neutre, reculer
