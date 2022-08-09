@@ -130,7 +130,7 @@ iframe {
 /*** Basics ***/
 body {
 	font-family: Verdana, Sans-Serif;
-	font-size: 13px;
+	font-size: 1em;
 	line-height: 1.7;
 }
 
@@ -202,19 +202,19 @@ hr {
 }
 
 h1 {
-	font-size: 17px;
+	font-size: 1.5em;
 	margin: 0 0 10px 0;
 }
 h2 {
-	font-size: 15px;
+	font-size: 1.5em;
 	margin: 0 0 10px 0;
 }
 h3 {
-	font-size: 14px;
+	font-size: 1.4em;
 	margin: 0 0 10px 0;
 }
 h3 {
-	font-size: 13px;
+	font-size: 1.3em;
 	margin: 0 0 10px 0;
 }
 
@@ -260,7 +260,7 @@ h3 {
 
 /*** Structure ***/
 #page {
-	width: 500px;
+	width: 100vh;
 	margin: 0 auto;
 	position: relative;
 }
@@ -312,7 +312,7 @@ h3 {
 }
 
 #content {
-	width: 500px;
+	width: 100%;
 	margin: 0 auto;
 }
 

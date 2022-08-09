@@ -74,8 +74,10 @@ Tant pis, je ferais de manière moche.
 
 Je fais à la place un autre circuit pour tenir les 7 segments et réunir leurs connexions en un seul point, pour éviter de devoir tout câbler à la main à nouveau.
 ![Rendu 3D du second PCB](/blog/img/kvb/pcb2.png "Rendu 3D du second PCB (pas complet)")
-Cependant, à la réception je me suis aperçue qu'il y avait une trace qui passait trop près de tous les pins sur un des afficheurs. Résultats, je suis obligée de couper cette trace manuellement entre chaque point. Oups !
+*Vous trouvez le problème? Indice, c'est en bas !*
 
+Cependant, à la réception je me suis aperçue qu'il y avait une trace qui passait trop près de tous les pins sur un des afficheurs. Résultats, je suis obligée de couper cette trace manuellement entre chaque point. Oups !
+![Bodge wire et coup de cutter pour corriger cette erreur](/blog/img/kvb/pcb-trace-bodge-wire.jpg "Bodge wire et coup de cutter pour corriger cette erreur")
 
 ## Le début de la modélisation
 ![20 mai, à 14h et quelques](/blog/img/kvb/kvb-20-mai.png "Le lendemain aprem")
@@ -141,6 +143,8 @@ Pour le modèle 3D actuel c'est [ici](/blog/img/kvb/KVB.stp). Notez qu'il faut v
 
 ## PCB
 Pour me simplifier la vie, j'ai rapidement fait un PCB, quasiment à l'identique de la perfboard.
+
+[![Schéma](/blog/img/kvb/schema-pcb-final.png)](/blog/img/kvb/schema-pcb-final.png)
 ![PCB final de commande](/blog/img/kvb/pcb3.png)
 
 
@@ -150,11 +154,14 @@ Bien que j'utilise une carte à base de STM32F103C8T6, notamment pour son port U
 Étant donné qu'il y a beaucoup plus d'informations qu'avant (les 5 boutons dans le sens Arduino ↦ PC, les 9 LEDs (4 statut, 4 boutons, LS-SF) et les deux afficheurs 7 segments dans le sens PC ↦ Arduino), j'ai fait le choix d'utiliser du JSON en série pour la communication. C'est extrêmement inefficace et ce n'est pas du tout une bonne solution, mais ça fonctionne et c'est pratique. J'utilise donc l'excellente librairie [ArduinoJson](https://arduinojson.org/). J'utilise aussi la librairie [Bounce2](https://github.com/thomasfredericks/Bounce2) afin d'éviter de devoir implémenter du debouncing manuellement.
 
 Pour éviter de spammer TrainSim, j'ai implémenté une simple vérification qui n'envoie une nouvelle ligne que si elle est différente de la précédente. Côté PC, les deux fonctions (readInput et writeOutput) fonctionnent en parallèle, dans deux threads séparés.
-
+## Code source
 [Code source Arduino](/blog/img/kvb/kvb.ino)
 [Code source PC](/blog/img/kvb/kvb.py) (le frein/Grand débit est à moitié supporté.)
 
 ## Conclusion
 Ça m'en aura pris du temps pour brancher une dizaine de LEDs et de boutons ! La tâche qui aura pris le plus de temps est sûrement de remplir les paramètres pour les afficheurs 7 segments. En tout cas j'ai pas mal appris sur tout ça (\*tousse\* DRC).
+
+En terminant cet article, je viens de réaliser la quantité d'afficheurs 7 segments que j'ai acheté pour ce projet. Je vous laisse juger !
+![](/blog/img/kvb/7segments.jpg)
 
 Merci beaucoup de m'avoir lue !
