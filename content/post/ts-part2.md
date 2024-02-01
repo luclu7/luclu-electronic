@@ -12,7 +12,7 @@ twitter:
 
 Le KVB, ou Contrôle de Vitesse par Balises, est un système qui surveille la vitesse du train pour éviter les accidents. Le système est composé de deux parties: le calculateur, dans le train; et la partie IHM (Interface Homme-Machine), qui contient les boutons et divers affichages, que je vais tenter de recréer.
 
-Le calculateur... calcule, les courbes de vitesses, et selon la vitesse de la section (par radio avec une balise au sol, entre les rails), détecte les problèmes éventuels. Si la vitesse est supérieur de 5 km/h à la vitesse maximale théorique, trois choses se passent: le voyant V s'allume (Vitesse), une alerte sonore s'active pendant 2 secondes, et les deux afficheurs 7 segments clignotent. Si la vitesse dépasse les 10km/h au dessus de la limite, déclenchement du freinage d'urgence et le voyant "FU" (Freinage d'Urgence, le symbole avec une roue et des patins des deux côtés) s'allume. Si vous voulez plus d'explications dans le détail, je vous envoie sur ce [fantastique site](https://lesiteferroviaire.pagesperso-orange.fr/kvb.htm).
+Le calculateur... calcule, les courbes de vitesses, et selon la vitesse de la section (par radio avec une balise au sol, entre les rails), détecte les problèmes éventuels. Si la vitesse est supérieur de 5 km/h à la vitesse maximale théorique, trois choses se passent: le voyant V s'allume (Vitesse), une alerte sonore s'active pendant 2 secondes, et les deux afficheurs 7 segments clignotent. Si la vitesse dépasse les 10km/h au dessus de la limite, déclenchement du freinage d'urgence et le voyant "FU" (Freinage d'Urgence, le symbole avec une roue et des patins des deux côtés) s'allume. Si vous voulez plus d'explications dans le détail, je vous envoie sur ce [fantastique site](http://lesiteferroviaire.free.fr/kvb.htm).
 
 ![KVB d'une rame RIO](/blog/img/kvb/kvb-rio.jpg)
 _Source de l'image: [Clicsouris](https://commons.wikimedia.org/wiki/File:Rame_inox_de_banlieue_-_KVB_sur_le_pupitre_de_conduite.jpg)_
@@ -34,9 +34,9 @@ Je n'ait fait, pour l'instant, que la partie supérieur.
   - FU (LS-FU): Freinage d'urgence, s'allume en cas d'arrêt d'urgence par le KVB (+10 km/h)
   - Panne sol: s'allume en cas de balise défaillante (ce qui ne devrait pas arriver en simulation !)
   - Panne engin: idem, mais en cas de panne sur l'engin moteur
-  - Grosse lampe en haut à droite: LS-SF, Signal Fermé, pas réellement du KVB (c'est en réalité la [RSO](https://lesiteferroviaire.pagesperso-orange.fr/repetition%20des%20signaux.htm "Répétition des Signaux Optiques")) mais incorporée dans le panneau pour des raisons pratiques
+  - Grosse lampe en haut à droite: LS-SF, Signal Fermé, pas réellement du KVB (c'est en réalité la [RSO](http://lesiteferroviaire.free.fr/repetition%20des%20signaux.htm "Répétition des Signaux Optiques")) mais incorporée dans le panneau pour des raisons pratiques
 
-[Schema](https://lesiteferroviaire.pagesperso-orange.fr/Files/Image/panneau_kvb_detaille.gif)
+[Schema](http://lesiteferroviaire.free.fr/Files/Image/panneau_kvb_detaille.gif)
 
 
 ## Maintenant que vous savez ce que c'est, comment?
